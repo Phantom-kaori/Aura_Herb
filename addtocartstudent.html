@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Student (Mint) - Aura Herb</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --theme-color: #56836a; --theme-light: #edf6ed; --ink: #244438; }
+        body { background: radial-gradient(ellipse at 12% 8%, #e7f3e8 0, transparent 38%), #fbfcf8; }
+        .page-container { overflow: hidden; }
+        .product-detail-container { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(28px, 6vw, 76px); padding: clamp(32px, 6vw, 76px) 0; align-items: center; }
+        .product-gallery { position: relative; min-height: 390px; overflow: hidden; background: linear-gradient(145deg, #e6f2e2, #c9dfcc); border: 1px solid #d6e7d5; border-radius: 28px; display: grid; place-items: center; font-size: clamp(100px, 16vw, 170px); box-shadow: 0 24px 60px #315f3b1c; animation: rise-in .8s ease both; }
+        .product-gallery::before, .product-gallery::after { content: ''; position: absolute; border-radius: 50%; background: #ffffff55; }
+        .product-gallery::before { width: 230px; height: 230px; top: -80px; right: -45px; }
+        .product-gallery::after { width: 170px; height: 170px; bottom: -70px; left: -35px; }
+        .product-gallery { isolation: isolate; }
+        .product-gallery > * { z-index: 1; }
+        .product-gallery img { display: block; width: 100%; height: 100%; max-height: 390px; object-fit: contain; }
+        .product-gallery .product-note { position: absolute; z-index: 2; bottom: 12px; left: 16px; right: 16px; margin: 0; color: #52675a; font-size: .72rem; line-height: 1.4; text-align: center; }
+        .product-gallery .product-note small { font-size: inherit; }
+        .product-gallery { animation: rise-in .8s ease both; }
+        .product-info { animation: rise-in .8s .12s ease both; }
+        .product-info h1 { color: var(--ink); font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.14; letter-spacing: -.04em; margin-bottom: 12px; }
+        .rating { color: #e8a83e; margin-bottom: 18px; font-size: .95rem; }
+        .price { font-size: 1.65rem; font-weight: 700; color: var(--ink); margin-bottom: 18px; }
+        .description { color: #66766c; font-size: 1rem; line-height: 1.8; margin-bottom: 28px; max-width: 52ch; }
+        .cart-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
+        .btn-add, .btn-remove, .btn-submit { transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+        .btn-add { background: var(--theme-color); color: white; border: none; padding: 13px 25px; border-radius: 999px; font-weight: 600; cursor: pointer; box-shadow: 0 8px 20px #56836a38; }
+        .btn-remove { background: #fff; color: #8f5c58; border: 1px solid #ead7d3; padding: 13px 22px; border-radius: 999px; font-weight: 600; cursor: pointer; }
+        .btn-add:hover, .btn-remove:hover, .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 12px 24px #24443825; }
+        .btn-add:active, .btn-remove:active, .btn-submit:active { transform: translateY(0); }
+        .order-section { border: 1px solid #e4eee4; background: #f3f8f1; border-radius: 22px; padding: 32px 20px; margin: 10px 0 38px; text-align: center; }
+        .order-section h2 { color: var(--ink); margin: 0 0 8px; }
+        .btn-submit { background: #315f49; color: white; border: none; padding: 14px 40px; font-size: 1rem; font-weight: 700; border-radius: 999px; cursor: pointer; }
+        @keyframes rise-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 700px) { .product-detail-container { grid-template-columns: 1fr; gap: 28px; } .product-gallery { min-height: 280px; border-radius: 22px; } }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <header class="navbar">
+            <div class="logo-area"><a href="index.html" style="color:white; text-decoration:none;">🌿 Aura Herb</a></div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="addtocartmini.html">Lavender Mode</a>
+                <a href="addtocartstudent.html">Mint Mode</a>
+                <a href="addtocartpremium.html">Rosemary Mode</a>
+            </nav>
+            <div class="cart-area"><span class="cart-link" id="cart-counter">🛒 Cart (0)</span></div>
+        </header>
+
+        <main class="product-detail-container">
+            <div class="product-gallery">
+                <img src="studentmint.png" alt="Mint Plant">
+                <p class="product-note"><small>Plant may differ from person to person. The product comes with seeds, not shoots.</small></p>
+            </div>
+            <div class="product-info">
+                <h1>Aura Student — Mint Edition</h1>
+                <div class="rating">⭐⭐⭐⭐⭐ (128 reviews)</div>
+                <div class="price">AED 25</div>
+                <p class="description">Sustainable pot with built-in drainage, ideal for fresh mint herbs. Designed to boost student focus, mental clarity, and provide a refreshing desk companion during study marathons.</p>
+                <p class="description">Includes: 1 pot, 1 mint seed packet, mini watering can, and detailed care instructions.</p>
+                <p class="description">Note: Plant growth may vary based on environmental conditions. The product is intended for educational and decorative purposes. Always follow care instructions for optimal results.</p>
+               
+                <div class="cart-actions">
+                    <button class="btn-add" onclick="updateCart(1)">Add to Cart</button>
+                    <button class="btn-remove" onclick="updateCart(-1)">Remove from Cart</button>
+                </div>
+            </div>
+        </main>
+
+        <section class="order-section">
+            <h2>Ready to grow?</h2>
+            <p style="color:#666; margin-bottom:20px;">Review your selections above and submit your order securely.</p>
+            <button class="btn-submit" onclick="submitOrder()">Submit Order</button>
+        </section>
+    </div>
+
+    <script>
+        let cartCount = 0;
+        function updateCart(change) {
+            cartCount = Math.max(0, cartCount + change);
+            document.getElementById('cart-counter').innerText = `🛒 Cart (${cartCount})`;
+        }
+        function submitOrder() {
+            if(cartCount === 0) { alert('Your cart is empty!'); }
+            else { alert('Order successfully submitted! Thank you for choosing Aura Herb.'); cartCount = 0; updateCart(0); }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Mini (Lavender) - Aura Herb</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --theme-color: #8b5585; --theme-light: #f7eef5; }
+        body { background: #fcf8fb; color: #392638; }
+        .page-container { overflow: hidden; }
+        .product-detail-container { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 76px); padding: clamp(36px, 7vw, 80px) 5%; align-items: center; }
+        .product-visual { display: flex; flex-direction: column; gap: 14px; }
+        .product-gallery { position: relative; isolation: isolate; min-height: 390px; background: radial-gradient(circle at 50% 45%, #fff 0 13%, transparent 14%), linear-gradient(145deg, #f5e8f2, #e9d7e8); border: 1px solid #ead8e8; box-shadow: 0 24px 60px #693d6018; border-radius: 28px; display: grid; place-items: center; font-size: clamp(100px, 15vw, 170px); }
+        .product-gallery::before, .product-gallery::after { content: "✦"; position: absolute; color: #fff; font-size: 30px; animation: twinkle 3s ease-in-out infinite; }
+        .product-gallery::before { top: 20%; left: 20%; }
+        .product-gallery::after { right: 19%; bottom: 22%; font-size: 22px; animation-delay: 1.2s; }
+        .product-gallery { animation: float-in 800ms both; }
+        .product-gallery { text-shadow: 0 14px 20px #754f7025; }
+        .product-note { grid-column: 1; grid-row: 2; color: #7a6d78; text-align: center; font-size: 0.82rem; line-height: 1.5; margin: 0; }
+        .product-info { grid-column: 2; grid-row: 1 / span 2; animation: fade-up 700ms 120ms both; }
+        .product-info h1 { color: #4d2a45; font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 14px; }
+        .rating { color: #d99745; margin-bottom: 18px; font-size: 0.95rem; }
+        .price { font-size: 1.8rem; font-weight: 700; color: #4d2a45; margin-bottom: 18px; }
+        .description { color: #756b75; font-size: 1rem; line-height: 1.8; margin-bottom: 28px; max-width: 52ch; }
+        .cart-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
+        .btn-add, .btn-remove, .btn-submit { transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease; }
+        .btn-add { background: linear-gradient(135deg, #9a6592, #70466d); color: white; border: none; padding: 14px 26px; border-radius: 999px; font-weight: 600; cursor: pointer; box-shadow: 0 8px 20px #70466d35; }
+        .btn-remove { background-color: #fff; color: #8f596d; border: 1px solid #ead5df; padding: 14px 24px; border-radius: 999px; font-weight: 600; cursor: pointer; }
+        .btn-add:hover, .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 12px 24px #70466d40; }
+        .btn-remove:hover { transform: translateY(-2px); background: #fbf1f5; }
+        button:focus-visible, a:focus-visible { outline: 3px solid #d7a6d0; outline-offset: 4px; }
+        .order-section { border-top: 1px solid #eddfeb; padding: 36px 20px 48px; margin-top: 10px; text-align: center; background: linear-gradient(180deg, transparent, #f7eef5); }
+        .order-section h2 { color: #4d2a45; font-size: 1.8rem; margin-bottom: 8px; }
+        .btn-submit { background-color: #6b3d64; color: white; border: none; padding: 15px 42px; font-size: 1rem; font-weight: 700; border-radius: 999px; cursor: pointer; box-shadow: 0 8px 20px #70466d30; }
+        @keyframes float-in { from { opacity: 0; transform: translateY(18px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        @keyframes fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes twinkle { 0%, 100% { opacity: .4; transform: scale(.8) rotate(0); } 50% { opacity: 1; transform: scale(1.2) rotate(25deg); } }
+        @media (max-width: 700px) { .product-detail-container { grid-template-columns: 1fr; padding-inline: 6%; } .product-gallery { min-height: 280px; } .product-note, .product-info { grid-column: 1; grid-row: auto; } .product-info h1 { font-size: 2.2rem; } }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <header class="navbar" style="background-color: rgb(77,42,69);">
+            <div class="logo-area"><a href="index.html" style="color:white; text-decoration:none;">🪻 Aura Herb</a></div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="addtocartmini.html">Lavender Mode</a>
+                <a href="addtocartstudent.html">Mint Mode</a>
+                <a href="addtocartpremium.html">Rosemary Mode</a>
+            </nav>
+            <div class="cart-area"><span class="cart-link" id="cart-counter">🛒 Cart (0)</span></div>
+        </header>
+
+        <main class="product-detail-container">
+            <div class="product-gallery">
+                <img src="minilaven.png" alt="Lavender Plant">
+            </div>
+            <p class="product-note"><small>Plant may differ from person to person. The product comes with seeds, not shoots.</small></p>
+            <div class="product-info">
+                <h1>Aura Mini — Lavender Edition</h1>
+                <div class="rating">⭐⭐⭐⭐⭐ (94 reviews)</div>
+                <div class="price">AED 15</div>
+                <p class="description">Compact ceramic pot engineered specifically for soothing lavender growth. Infuses your study space with calming floral aromas designed to alleviate evening stress and promote restful sleep.</p>
+                <p class="description">Perfect for students, night-shift workers, or anyone seeking a serene environment. Easy to maintain and ideal for small spaces.</p>
+                <p class="description">Includes: 1 pot, 1 lavender seed packet, mini watering can, and detailed care instructions.</p>
+                <p class="description">Note: Plant growth may vary based on environmental conditions. The product is intended for educational and decorative purposes. Always follow care instructions for optimal results.</p>
+                               
+                <div class="cart-actions">
+                    <button class="btn-add" onclick="updateCart(1)">Add to Cart</button>
+                    <button class="btn-remove" onclick="updateCart(-1)">Remove from Cart</button>
+                </div>
+            </div>
+        </main>
+
+        <section class="order-section">
+            <h2>Ready to grow?</h2>
+            <p style="color:#666; margin-bottom:20px;">Review your selections above and submit your order securely.</p>
+            <button class="btn-submit" onclick="submitOrder()">Submit Order</button>
+        </section>
+    </div>
+
+    <script>
+        let cartCount = 0;
+        function updateCart(change) {
+            cartCount = Math.max(0, cartCount + change);
+            document.getElementById('cart-counter').innerText = `🛒 Cart (${cartCount})`;
+        }
+        function submitOrder() {
+            if(cartCount === 0) { alert('Your cart is empty!'); }
+            else { alert('Order successfully submitted! Thank you for choosing Aura Herb.'); cartCount = 0; updateCart(0); }
+        }
+    </script>
+</body>
+</html>
